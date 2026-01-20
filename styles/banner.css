@@ -1,86 +1,61 @@
-/* --- GLOBAL RESET --- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* --- NAVBAR BUTTON FIX --- */
-.nav-subscribe-btn {
-    background: linear-gradient(90deg, #F97316, #EC4899) !important;
-    color: white !important;
-    padding: 10px 20px !important;
-    border-radius: 50px !important;
-    text-decoration: none !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    display: inline-block;
-}
-
-/* --- HERO SECTION --- */
 .hero {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 760px; /* Your Pixso Height */
+    background-color: #120129;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #120129;
     overflow: hidden;
-    padding: 80px 20px; /* Space for navbar */
 }
-
-/* Background Wave - Locked to Center */
-.wave-background {
+.hero-bg-wave {
     position: absolute;
+    width: 1600px; /* Your Pixso Width */
+    height: 760px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    min-width: 1200px; /* Desktop scaling fix */
+    transform: translate(-50%, -50%); /* Keeps wave centered when zooming out */
     z-index: 1;
-    opacity: 0.6;
+    pointer-events: none;
+    object-fit: contain;
 }
 
 .hero-container {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Content sits on top of wave */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-/* MIC & BADGE - Glued together */
 .mic-wrapper {
     position: relative;
-    width: clamp(220px, 30vw, 320px);
-    margin-bottom: 30px;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 20px;
 }
-.mic-bg { width: 100%; }
-.mic-icon {
+.mic-circle-bg { width: 100%; height: 100%; }
+.mic-icon-white {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+    width: 120px;
 }
 .badge-new {
     position: absolute;
-    top: 15%;
-    right: 5%;
+    top: 35px;
+    right: 25px;
     background: #00FF88 !important;
     color: black !important;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
-    font-weight: 900;
-    font-size: 12px;
+    font-weight: 800;
+    font-size: 14px;
 }
 
-/* HERO TEXT */
-.hero-title {
-    font-size: clamp(42px, 6vw, 64px);
-    color: white;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
+.hero-title { font-size: 64px; color: white; }
 .hero-subtitle {
     font-size: clamp(14px, 2vw, 18px);
     color: #cbd5e1;
@@ -118,21 +93,24 @@
     gap: 10px;
 }
 
-/* --- MOBILE SPECIFIC (Override everything above) --- */
 @media (max-width: 576px) {
-    .wave-background {
-        width: 250%; /* Stretch wave so it stays behind mic */
+    .hero { min-height: 100vh; padding-top: 60px; }
+
+    /* Shrink the 350px circle for phones */
+    .mic-wrapper {
+        width: 220px !important;
+        height: 220px !important;
     }
-    
+
+    .hero-bg-wave {
+        width: 250%; /* Stretches wave so it doesn't look tiny on phones */
+    }
+
+    .hero-title { font-size: 36px !important; }
+
     .hero-btns {
         flex-direction: column;
         width: 100%;
-        align-items: center;
-    }
-    
-    .btn-spotify, .hero-subscribe-btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
+        gap: 15px;
     }
 }
