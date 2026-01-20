@@ -1,83 +1,101 @@
+/* --- GLOBAL RESET --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* --- NAVBAR BUTTON FIX --- */
+.nav-subscribe-btn {
+    background: linear-gradient(90deg, #F97316, #EC4899) !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    display: inline-block;
+}
+
+/* --- HERO SECTION --- */
 .hero {
     position: relative;
     width: 100%;
-    min-height: 80vh; 
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
-    text-align: center;
+    justify-content: center;
+    background-color: #120129;
     overflow: hidden;
-    padding: 0 20px;
+    padding: 80px 20px; /* Space for navbar */
 }
 
+/* Background Wave - Locked to Center */
 .wave-background {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Perfectly centers the wave */
+    transform: translate(-50%, -50%);
     width: 100%;
-    height: auto;
-    z-index: -1; /* Pushes it behind the microphone and text */
-    pointer-events: none;
+    min-width: 1200px; /* Desktop scaling fix */
+    z-index: 1;
+    opacity: 0.6;
 }
 
 .hero-container {
-    z-index: 1; 
-}
-
-.mic-bg-container {
     position: relative;
-    width: 320px; 
-    margin: 0 auto 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.mic-bg {
-    width: 100%;
-    height: auto;
+/* MIC & BADGE - Glued together */
+.mic-wrapper {
+    position: relative;
+    width: clamp(220px, 30vw, 320px);
+    margin-bottom: 30px;
 }
-
+.mic-bg { width: 100%; }
 .mic-icon {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); 
-    width: 90px;
+    transform: translate(-50%, -50%);
+    width: 30%;
 }
-
 .badge-new {
     position: absolute;
-    top: 35px;
-    right: 15px;
-    background-color: #00FF88; /* */
-    color: #000;
-    padding: 4px 12px;
+    top: 15%;
+    right: 5%;
+    background: #00FF88 !important;
+    color: black !important;
+    padding: 5px 12px;
     border-radius: 20px;
-    font-weight: bold;
+    font-weight: 900;
+    font-size: 12px;
 }
-/* TEXT STYLES */
+
+/* HERO TEXT */
 .hero-title {
-    font-size: 64px;
-    color: white; /* */
+    font-size: clamp(42px, 6vw, 64px);
+    color: white;
+    font-weight: 800;
     margin-bottom: 10px;
 }
-
 .hero-subtitle {
+    font-size: clamp(14px, 2vw, 18px);
     color: #cbd5e1;
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto 40px;
+    max-width: 550px;
+    margin-bottom: 40px;
 }
 
-/* BUTTONS - This fix is for your mobile screenshot */
+/* HERO BUTTONS */
 .hero-btns {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .btn-spotify {
-    background: linear-gradient(90deg, #F97316, #EC4899, #A855F7); /* */
+    background: linear-gradient(90deg, #f97316, #ec4899, #a855f7);
     color: white;
     padding: 14px 28px;
     border-radius: 50px;
@@ -88,9 +106,9 @@
     gap: 10px;
 }
 
-.btn-outline-subscribe {
-    border: 1.5px solid #00FF88; /* */
-    color: #00FF88;
+.hero-subscribe-btn {
+    border: 2px solid #00FF88 !important;
+    color: #00FF88 !important;
     padding: 14px 28px;
     border-radius: 50px;
     text-decoration: none;
@@ -100,22 +118,21 @@
     gap: 10px;
 }
 
-/* --- MOBILE RESPONSIVE (Up to 576px) --- */
+/* --- MOBILE SPECIFIC (Override everything above) --- */
 @media (max-width: 576px) {
-    .hero-title { font-size: 40px; }
-    .hero-subtitle { font-size: 14px; }
+    .wave-background {
+        width: 250%; /* Stretch wave so it stays behind mic */
+    }
     
-    .mic-bg-container { width: 180px; height: 180px; }
-    .mic-icon { width: 55px; }
-
     .hero-btns {
-        flex-direction: column; /* This stacks your buttons on top of each other */
+        flex-direction: column;
+        width: 100%;
         align-items: center;
     }
-
-    .btn-spotify, .btn-outline-subscribe {
+    
+    .btn-spotify, .hero-subscribe-btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         justify-content: center;
     }
 }
