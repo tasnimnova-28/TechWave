@@ -1,0 +1,99 @@
+.podcast-footer {
+    position: relative;
+    background-color: #0f0221; /* Deep purple from your screens */
+    padding: 100px 20px 40px;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* Background Wave Positioning */
+.footer-wave-bg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.footer-wave-bg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Logo Styling - Matching Screenshot 150633 */
+.footer-logo h1 {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.footer-logo span {
+    background: linear-gradient(90deg, #ff3366, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Responsive Platforms Grid */
+.footer-platforms {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Allows the 2x2 wrapping */
+    margin-bottom: 60px;
+}
+
+.platform-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #cbd5e1; /* Soft grey from Pixso */
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.platform-link img {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- MOBILE RESPONSIVENESS (Matches your 145758 screenshot) --- */
+@media (max-width: 768px) {
+    .footer-logo h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .footer-platforms {
+        display: grid;
+        grid-template-columns: repeat(2, auto); /* Creates the 2x2 layout */
+        justify-content: center;
+        gap: 20px 40px; /* Vertical gap 20px, Horizontal gap 40px */
+    }
+
+    .platform-link span {
+        font-size: 14px;
+    }
+}
+
+.footer-bottom p {
+    color: #64748b;
+    font-size: 14px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
