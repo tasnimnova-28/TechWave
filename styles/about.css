@@ -70,7 +70,6 @@
     }
 }
 .hero {
-    /* Change this to allow content to flow naturally */
     overflow: visible !important; 
     z-index: 1;
 }
