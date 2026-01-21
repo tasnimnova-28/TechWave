@@ -74,3 +74,13 @@ body {
     .navbar { height: 60px; padding: 0 20px; } 
     .nav-menu { top: 60px; }
 }
+.btn-subscribe {
+    background: linear-gradient(90deg, #F97316, #EC4899) !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    display: inline-block;
+}

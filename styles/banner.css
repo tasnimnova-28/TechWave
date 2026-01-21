@@ -1,21 +1,22 @@
-
+/* --- SECTION 1: HERO & MIC (Keep this part) --- */
 .hero {
     position: relative;
     width: 100%;
-    min-height: 760px; /* Your Pixso Height */
+    min-height: 760px;
     background-color: #120129;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
+
 .hero-bg-wave {
     position: absolute;
-    width: 1600px; /* Your Pixso Width */
+    width: 1600px;
     height: 760px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Keeps wave centered when zooming out */
+    transform: translate(-50%, -50%);
     z-index: 1;
     pointer-events: none;
     object-fit: contain;
@@ -23,7 +24,7 @@
 
 .hero-container {
     position: relative;
-    z-index: 2; /* Content sits on top of wave */
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,6 +44,7 @@
     transform: translate(-50%, -50%);
     width: 120px;
 }
+
 .badge-new {
     position: absolute;
     top: 35px;
@@ -55,55 +57,63 @@
     font-size: 14px;
 }
 
-.hero-title { font-size: 64px; color: white; }
+.hero-title { font-size: 64px; color: white; margin-bottom: 10px; }
+
+/* --- SECTION 2: BUTTONS & SUBTITLE (Fixes your screenshot) --- */
+
 .hero-subtitle {
-    font-size: clamp(14px, 2vw, 18px);
-    color: #cbd5e1;
-    max-width: 550px;
-    margin-bottom: 40px;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 40px; /* Gap before buttons */
+    max-width: 600px;
+    opacity: 0.9;
 }
 
-/* HERO BUTTONS */
 .hero-btns {
     display: flex;
     gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
+/* 1. Spotify Button (Gradient + No Underline) */
 .btn-spotify {
-    background: linear-gradient(90deg, #f97316, #ec4899, #a855f7);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 10px;
+    background: linear-gradient(90deg, #FF7E52, #FF2EAD) !important;
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none !important; /* Fixes the purple underline */
+    font-weight: 600;
 }
 
-.hero-subscribe-btn {
-    border: 2px solid #00FF88 !important;
+/* 2. Subscribe Button (Green Outline + No Underline) */
+.btn-subscribe-outline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent !important;
     color: #00FF88 !important;
-    padding: 14px 28px;
+    border: 2px solid #00FF88 !important;
+    padding: 12px 28px;
     border-radius: 50px;
-    text-decoration: none;
+    text-decoration: none !important; /* Fixes the purple underline */
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
+.hero-btns img {
+    width: 20px;
+}
+
+/* --- SECTION 3: MOBILE STYLES --- */
 @media (max-width: 576px) {
     .hero { min-height: 100vh; padding-top: 60px; }
 
-    /* Shrink the 350px circle for phones */
     .mic-wrapper {
-        width: 220px !important;
-        height: 220px !important;
-    }
-
-    .hero-bg-wave {
-        width: 250%; /* Stretches wave so it doesn't look tiny on phones */
+        width: 240px !important;
+        height: 240px !important;
     }
 
     .hero-title { font-size: 36px !important; }
@@ -112,5 +122,11 @@
         flex-direction: column;
         width: 100%;
         gap: 15px;
+        padding: 0 20px;
+    }
+
+    .btn-spotify, .btn-subscribe-outline {
+        width: 100%;
+        justify-content: center;
     }
 }
