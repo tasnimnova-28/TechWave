@@ -1,0 +1,86 @@
+.features-section {
+    background-color: #120129;
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.section-title {
+    color: white;
+    font-size: 42px;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-areas: 
+        "audio mobile"
+        "audio community"
+        "interviews resources";
+    gap: 24px;
+}
+
+.card-audio { grid-area: audio; }
+.card-mobile { grid-area: mobile; }
+.card-community { grid-area: community; }
+.card-interviews { grid-area: interviews; }
+.card-resources { grid-area: resources; }
+
+.feature-card {
+    background: #1e0b3a; 
+    border-radius: 32px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: #00FF88;
+    background: rgba(45, 20, 80, 0.9);
+}
+
+.f-icon-box {
+    background: none !important; 
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 24px;
+}
+
+.f-icon-box img {
+    width: 48px;
+    height: 48px;
+}
+
+.feature-card h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #94a3b8;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .features-container {
+        grid-template-areas: 
+            "audio"
+            "mobile"
+            "community"
+            "interviews"
+            "resources";
+        grid-template-columns: 1fr;
+    }
+}
